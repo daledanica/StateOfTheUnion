@@ -14,6 +14,7 @@ public class AtlasServiceMock implements AtlasService {
     @Override
     public StateInfo lookUp(String nameOrAbbr) {
 
+        System.out.println("---> This is where the microservice will be used <----");
         for (StateInfo stateInfo : states) {
             if (stateInfo.getName().equalsIgnoreCase(nameOrAbbr)) return stateInfo;
             if (stateInfo.getAbbr().equalsIgnoreCase(nameOrAbbr)) return stateInfo;

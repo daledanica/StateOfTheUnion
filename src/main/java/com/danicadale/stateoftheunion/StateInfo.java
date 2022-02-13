@@ -29,8 +29,12 @@ public class StateInfo {
         this.history = history;
     }
 
+
+
     public void print() {
 
+        System.out.println();
+        System.out.println("You chose the state: " + name);
         System.out.println();
         System.out.println("Basic state facts:");
         System.out.println("Name: " + name);
@@ -38,6 +42,26 @@ public class StateInfo {
         System.out.println("Capitol: " + capitol);
         System.out.println("Flower: " + flower);
         System.out.println("Burb: " + birb);
+    }
+
+
+
+    public void printFunFact() {
+
+        System.out.println();
+        System.out.println("Awesome! Fun fact it is :)");
+        System.out.println();
+        System.out.println(funFact);
+    }
+
+
+
+    public void printHistoryFact() {
+
+        System.out.println();
+        System.out.println("Awesome! History fact it is :)");
+        System.out.println();
+        System.out.println(history);
     }
 
 

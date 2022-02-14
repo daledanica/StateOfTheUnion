@@ -19,3 +19,9 @@ To actually run it, it's a standard execution of a java jar:
 
 `% java -cp StateOfTheUnion-1.0-SNAPSHOT.jar com.danicadale.stateoftheunion.StateOfTheUnion`
 
+## Sequence Diagrams
+Look under Drawings directory.
+You can find puml source code and .png images
+
+
+

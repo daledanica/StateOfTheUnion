@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant "State of the Union\napp" as App
+participant "Partner's\nMicroservice" as MS
+
+loop
+    loop State selection
+
+        App -> User: Displays prompt\nto enter state
+        User -> App: Selects a state
+        App -> MS: Asks to lookup state info
+        MS --> App: Returns state info
+
+        alt Found state info
+            App --> User: Displays state info
+            note over App: exit state selection loop
+        else Did not find State info
+            User <-- App: Friendly error msg
+        end
+    end
+
+    loop Action loop
+        App -> User: Displays actions menu
+        User -> App: Enters an action
+
+        alt User asks for fun fact
+            User <-- App: Display fun fact
+        else User asks for history
+            User <-- App: Display history
+        else User asks to enter another State
+            User <-- App: Return to state propmt
+        else User asks to quit
+            User <-- App: Display thank you message
+            note over App: Terminate and\nreturn user to shell
+        end alt
+    end action loop
+end main loop
+@enduml

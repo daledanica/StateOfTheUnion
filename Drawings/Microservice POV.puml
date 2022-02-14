@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "Teammate's App" as App
+participant "My Random Number\nGenerator Microservice" as RNG
+
+App -> RNG: HTTP [GET] /randomNumber
+activate RNG
+RNG -> RNG: Generate pseudo\nrandom number
+RNG --> App: random number
+deactivate RNG
+
+@enduml

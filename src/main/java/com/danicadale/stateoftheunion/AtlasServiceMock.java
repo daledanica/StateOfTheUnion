@@ -23,15 +23,4 @@ public class AtlasServiceMock implements AtlasService {
     }
 
 
-
-    public AtlasServiceMock() {
-
-        states.add(new StateInfo("Oregon", "OR", "Salem", "Oregon Grape",
-                                 "Western Meadowlark", "It sux here.", "Formed 1848"));
-        states.add(new StateInfo("Alaska", "AK", "Juneau", "Forget-me-not",
-                                 "Willow Ptarmigan", "It do be cold.", "Formed neverary"));
-        states.add(new StateInfo("Florida", "FL", "Tallahasse", "Orange Blossom",
-                                 "Mockingbird", "It do be warm.", "Formed neverary"));
-
-    }
 }

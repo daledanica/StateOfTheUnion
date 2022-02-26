@@ -2,13 +2,19 @@ package com.danicadale.stateoftheunion;
 
 public class StateInfo {
 
-    private final String name;
-    private final String abbr;
-    private final String capitol;
-    private final String flower;
-    private final String birb;
-    private final String funFact;
-    private final String history;
+
+    private String name;
+    private String abbr;
+    private String capitol;
+    private String flower;
+    private String bird;
+    private int year;
+
+
+
+    public StateInfo() {
+
+    }
 
 
 
@@ -16,17 +22,15 @@ public class StateInfo {
                      String abbr,
                      String capitol,
                      String flower,
-                     String birb,
-                     String funFact,
-                     String history) {
+                     String bird,
+                     int year) {
 
         this.name = name;
         this.abbr = abbr;
         this.capitol = capitol;
         this.flower = flower;
-        this.birb = birb;
-        this.funFact = funFact;
-        this.history = history;
+        this.bird = bird;
+        this.year = year;
     }
 
 
@@ -41,27 +45,50 @@ public class StateInfo {
         System.out.println("Abbreviation: " + abbr);
         System.out.println("Capitol: " + capitol);
         System.out.println("Flower: " + flower);
-        System.out.println("Burb: " + birb);
+        System.out.println("Burb: " + bird);
+        System.out.println("Year: " + year);
     }
 
 
 
-    public void printFunFact() {
+    public void setName(String name) {
 
-        System.out.println();
-        System.out.println("Awesome! Fun fact it is :)");
-        System.out.println();
-        System.out.println(funFact);
+        this.name = name;
     }
 
 
 
-    public void printHistoryFact() {
+    public void setAbbr(String abbr) {
 
-        System.out.println();
-        System.out.println("Awesome! History fact it is :)");
-        System.out.println();
-        System.out.println(history);
+        this.abbr = abbr;
+    }
+
+
+
+    public void setCapitol(String capitol) {
+
+        this.capitol = capitol;
+    }
+
+
+
+    public void setFlower(String flower) {
+
+        this.flower = flower;
+    }
+
+
+
+    public void setBird(String bird) {
+
+        this.bird = bird;
+    }
+
+
+
+    public void setYear(int year) {
+
+        this.year = year;
     }
 
 
@@ -76,5 +103,33 @@ public class StateInfo {
     public String getAbbr() {
 
         return abbr;
+    }
+
+
+
+    public String getCapitol() {
+
+        return capitol;
+    }
+
+
+
+    public String getFlower() {
+
+        return flower;
+    }
+
+
+
+    public String getBird() {
+
+        return bird;
+    }
+
+
+
+    public int getYear() {
+
+        return year;
     }
 }

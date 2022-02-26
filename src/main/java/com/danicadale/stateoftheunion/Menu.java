@@ -1,6 +1,7 @@
 package com.danicadale.stateoftheunion;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -39,6 +40,7 @@ public class Menu {
             selector = findChoice(scanner.nextLine());
             if (selector != null) {
                 validChoice = true;
+                selector = selector.toUpperCase();
             }
             else {
                 System.out.println(

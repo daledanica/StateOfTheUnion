@@ -51,10 +51,6 @@ public class StateOfTheUnion {
         System.out.println("            Welcome to 'State of the Union!'");
         System.out.println("--------------------------------------------------------");
 
-        Menu stateFactsMenu
-                = new Menu(Arrays.asList(new Choice("C", "Choose another state"),
-                                         new Choice("Q", "Quit")));
-
         AtlasService atlasService = new AtlasServiceReal();
         while (true) {
             StateInfo stateInfo = getState(atlasService);
@@ -62,19 +58,10 @@ public class StateOfTheUnion {
                 System.out.println();
                 System.out.println("I'm sorry, I don't recognize that state");
             }
+
             else {
                 stateInfo.print();
             }
-            boolean inStateMenu = true;
-            while (inStateMenu) {
-                String choice = stateFactsMenu.getSelection();
-                switch (choice.toUpperCase()) {
-                    case "Q" -> confirmQuit();
-                    case "C" -> inStateMenu = false;
-                }
-            }
         }
-
     }
-
 }

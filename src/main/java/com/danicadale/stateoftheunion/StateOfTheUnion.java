@@ -1,10 +1,12 @@
 package com.danicadale.stateoftheunion;
 
-import java.util.Arrays;
-import java.util.Locale;
 
-
-
+/**
+ * This is the main class for this application
+ *
+ * @author Danica Dale
+ * @since January 2022
+ */
 public class StateOfTheUnion {
 
 
@@ -20,6 +22,7 @@ public class StateOfTheUnion {
                 continue;
             }
 
+            // call teammate's microservice to return state info
             StateInfo stateInfo = atlasService.lookUp(stateName);
             if (stateInfo == null) {
                 System.out.println("I'm sorry, I don't know of a state named: " + stateName);
@@ -51,17 +54,14 @@ public class StateOfTheUnion {
         System.out.println("            Welcome to 'State of the Union!'");
         System.out.println("--------------------------------------------------------");
 
+        // connect to the remote Microservice
         AtlasService atlasService = new AtlasServiceReal();
+
+        // getState() will do a direct exit for us
+        //noinspection InfiniteLoopStatement
         while (true) {
             StateInfo stateInfo = getState(atlasService);
-            if (stateInfo == null) {
-                System.out.println();
-                System.out.println("I'm sorry, I don't recognize that state");
-            }
-
-            else {
-                stateInfo.print();
-            }
+            stateInfo.print();
         }
     }
 }

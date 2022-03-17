@@ -1,23 +1,30 @@
 package com.danicadale.stateoftheunion;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-public class AtlasServiceReal implements AtlasService{
+
+/**
+ * This implements the interface to the remote atlas microservice
+ *
+ * @author Danica Dale
+ * @since January 2022
+ */
+public class AtlasServiceReal implements AtlasService {
 
     @Override
-    public StateInfo lookUp(String nameOrAbbr) {
+    public StateInfo lookUp(String uspsAbbr) {
 
         try {
 
             String baseUrl = "https://project13.us/cgi-bin/states.py?state=";
-            URL url = new URL(baseUrl + nameOrAbbr);
+            URL url = new URL(baseUrl + uspsAbbr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -38,10 +45,6 @@ public class AtlasServiceReal implements AtlasService{
 
             return stateInfo;
 
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -51,19 +54,23 @@ public class AtlasServiceReal implements AtlasService{
     }
 
 
+
     private String convertQuotes(String quote) {
 
-        String translated = new String();
-        for (int i =  0; i < quote.length(); i++) {
+        // Convert single quotes into double quotes as in this particular case,
+        // my classmate used python and it only output single quotes.
+        // Java needs to read double quotes
+        StringBuilder translated = new StringBuilder();
+        for (int i = 0; i < quote.length(); i++) {
             if (quote.charAt(i) == '\'') {
-                translated += '"';
+                translated.append('"');
             }
             else {
-                translated += quote.charAt(i);
+                translated.append(quote.charAt(i));
             }
         }
 
-        return translated;
+        return translated.toString();
     }
 
 }

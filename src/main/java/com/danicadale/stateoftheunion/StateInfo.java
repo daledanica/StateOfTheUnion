@@ -1,5 +1,11 @@
 package com.danicadale.stateoftheunion;
 
+/**
+ * A container of information about a state
+ *
+ * @author Danica Dale
+ * @since January 2022
+ */
 public class StateInfo {
 
 
@@ -50,6 +56,11 @@ public class StateInfo {
     }
 
 
+    /*
+     * IntelliJ and code smell sniffers will complain that these setters and getters aren't needed.
+     * However, they are actually used via reflection by Jackson when deserializing JSON responses
+     * from the remote Atlas microservice.
+     */
 
     public void setName(String name) {
 

@@ -29,7 +29,6 @@ public class AtlasServiceMock implements AtlasService {
 
         System.out.println("---> This is where the microservice will be used <----");
         for (StateInfo stateInfo : states) {
-            if (stateInfo.getName().equalsIgnoreCase(uspsAbbr)) return stateInfo;
             if (stateInfo.getAbbr().equalsIgnoreCase(uspsAbbr)) return stateInfo;
         }
         return null;
